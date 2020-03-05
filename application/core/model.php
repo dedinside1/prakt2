@@ -7,7 +7,7 @@ class Model
     }
     public function __construct()
     {
-        require_once 'settings.php';
+
         mysqli_set_charset($this->link=new mysqli(
             $GLOBALS['host'],
             $GLOBALS['username'],
