@@ -2,26 +2,30 @@
 class Controller_Login extends Controller
 {
 
+	function __construct()
+	{
+		$this->model = new Model_Login();
+		$this->view = new View();
+	}
+
+	function action_index()
+	{
 
 
-    function __construct()
-    {
-        $this->model = new Model_Login();
-        $this->view = new View();
-    }
+		if(isset($_POST['submitlogin'])) {
+					$login = filter_var(trim($_POST['login'], FILTER_SANITIZE_STRING));
+					$password = filter_var(trim($_POST['password'], FILTER_SANITIZE_STRING));
+					if ($this->model->Login($login, $password)) {
+						header('Location:'.'/');
+					} else {
+						echo 'Ошибка авторизации';
+					}
+				}
 
-    function action_index()
-    {
-        if(isset($_POST['sumbitlogin'])){
-            $login = $_POST['login'];
-            $password=$_POST['password'];
-            if ($this->model->Login($login,$password)){
-                header('Location:'.'/');
-            }else{
-                $message='Ошибка ваторизации';
-            }
+	$this->view->generate('login_view.php', 'template_view.php');
 
-        }
-        $this->view->generate('login_view.php', 'template_view.php');
-    }
-}
+		}
+
+
+
+	}

@@ -8,7 +8,7 @@
 	</head>
 	<body>
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  				<a class="navbar-brand" href="/main">ПРАКТИКА</a>
+  				<a class="navbar-brand" href="/main"> <img style="width: 50px; height: 50px;" src="https://www.meme-arsenal.com/memes/fdaf3a69c3c7353e18cca8f59d4bf2d5.jpg">ПРАКТИКА Жокира</a>
   				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     				<span class="navbar-toggler-icon"></span>
  				 </button>
@@ -27,12 +27,14 @@
         					<a class="nav-link" href="/contacts">Контакты</a>
      					 </li>
    					 </ul>
-
+<?php if ($_SESSION['login']=='admin') {
+	echo "2iq";
+} ?>
   				</div>
 			</nav>
 				<div>
 					<div class="container">
-						<?php include 'application/views/'.$content_view; ?> 
+						<?php include 'application/views/'.$content_view; ?>
 					</div>
 					<br class="clearfix" />
 				</div>
